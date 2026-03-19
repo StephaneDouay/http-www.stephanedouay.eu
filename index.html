@@ -1,141 +1,1115 @@
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stéphane Douay - Technicien Support Informatique</title>
-  <link rel="icon" type="image/png" href="Black White Minimalist Logo - copie.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .fade-in { animation: fadeIn 1.5s ease forwards; opacity: 0; }
-    .slide-up { animation: slideUp 1.5s ease forwards; opacity: 0; }
-    @keyframes fadeIn { to { opacity: 1; } from { opacity: 0; } }
-    @keyframes slideUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
-    .hover-zoom:hover { transform: scale(1.05); transition: transform 0.3s ease; }
-    .contact { text-align: center; }
-    section { scroll-margin-top: 100px; }
-
-    /* Zoom x1.5 fluide pour titres (h3) */
-    .hover-scale-200 { 
-      transition: transform .3s ease, color .2s ease; 
-      color: white; 
-    }
-    .hover-scale-200:hover { 
-      transform: scale(1.5); 
-      color: rgb(96 165 250); /* text-blue-400 */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="support, informatique, VIP, technicien support, expert IT, entreprise, ESN, Stéphane DOUAY, informatique de direction, COMEX, sécurité informatique, support haut niveau">
+    <meta name="description" content="Stéphane DOUAY, expert IT VIP et COMEX, offre des solutions de support informatique haut niveau, assurant la continuité technologique des directions générales avec discrétion et confidentialité. Découvrez mon parcours et mes expertises.">
+    <meta name="author" content="Stéphane DOUAY">
+    <title>Stéphane Douay · Portfolio Expert IT VIP & COMEX</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    :root {
+        --main-blue: #0f4c75;
+        --accent-blue: #3282b8;
+        --bg-dark: #0a0a0a;
     }
 
-    h2 { color: snow; }
-    .telephone{
-      margin-left: 47%;
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: linear-gradient(135deg, #18181b 0%, var(--bg-dark) 50%, #18181b 100%);
+        color: #f4f4f5;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
     }
-  </style>
+
+    :root[data-lang="fr"] .lang-en {
+        display: none !important;
+    }
+
+    :root[data-lang="en"] .lang-fr {
+        display: none !important;
+    }
+
+    .glass-card {
+        background: rgba(30, 30, 35, 0.9);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(244, 244, 245, 0.1);
+        transition: all 0.3s;
+    }
+
+    .glass-card:hover {
+        border-color: var(--accent-blue);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #fff 30%, var(--accent-blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    /* background */
+    /* Timeline */
+    .timeline-container {
+        position: relative;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .timeline-container::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background: linear-gradient(to bottom, transparent, var(--accent-blue), var(--accent-blue), transparent);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        position: relative;
+        width: 50%;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item.left {
+        text-align: right;
+        left: 0;
+    }
+
+    .timeline-item.right {
+        text-align: left;
+        left: 50%;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: var(--accent-blue);
+        border: 4px solid var(--bg-dark);
+        border-radius: 50%;
+        top: 35px;
+        z-index: 10;
+    }
+
+    .left .timeline-dot {
+        right: -8px;
+    }
+
+    .right .timeline-dot {
+        left: -8px;
+    }
+
+    @media (max-width: 768px) {
+        .timeline-container::after {
+            left: 20px;
+        }
+
+        .timeline-item {
+            width: 100%;
+            text-align: left !important;
+            padding-left: 50px;
+            left: 0 !important;
+        }
+
+        .timeline-dot {
+            left: 12px !important;
+        }
+    }
+    /* Expertises */
+    .expertise-section {
+        padding: 6rem 1rem;
+        background: radial-gradient(circle at top, #222 0%, #0b0b0b 60%);
+        text-align: center;
+    }
+
+    .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .expertise-card {
+        background: linear-gradient(180deg, #1c1c22, #141419);
+        border-radius: 22px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.6);
+        position: relative;
+    }
+
+    .expertise-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 100%;
+        border-radius: 22px 22px 0 0;
+    }
+
+    .border-blue::before {
+        background: #1fb6ff;
+    }
+
+    .border-yellow::before {
+        background: #ffb703;
+    }
+
+    .border-green::before {
+        background: #85FF21;
+    }
+
+    .expertise-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+    }
+
+    .expertise-label {
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+    }
+
+    .blue {
+        color: #1fb6ff;
+    }
+
+    .green {
+        color: #85FF21;
+    }
+
+    .yellow {
+        color: #ffb703;
+    }
+    /* Buttons */
+    .btn-glow {
+        background: var(--main-blue);
+        transition: all 0.3s ease;
+        color: white;
+        cursor: pointer;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+    }
+
+    .btn-glow:hover {
+        background: #196b99;
+        box-shadow: 0 0 25px rgba(15, 76, 117, 0.8);
+        transform: scale(1.05);
+    }
+    /* References */
+    #refs-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+
+    .contact-reveal-box .contact-blur {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .contact-reveal-box:hover .contact-blur {
+        opacity: 1;
+    }
+    /* Back To Top */
+    #backToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: var(--accent-blue);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 200;
+    }
+
+    #backToTop.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #backToTop:hover {
+        transform: translateY(-5px) scale(1.1);
+        background: #1fb6ff;
+    }
+    /* Nouveaux styles pour les badges d'expertise */
+    .tech-tag {
+        padding: 10px 18px;
+        border-radius: 9999px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: white;
+        backdrop-filter: blur(6px);
+        transition: all 0.25s ease;
+        box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+    }
+
+    .tech-tag:hover {
+        background: linear-gradient(90deg, #3b82f6, #2563eb);
+        border-color: #3b82f6;
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        transform: translateY(-2px);
+    }
+    /* Style des badges dans le parcours (Timeline) */
+    .tech-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(50, 130, 184, 0.1);
+        /* Bleu transparent */
+        border: 1px solid rgba(50, 130, 184, 0.3);
+        border-radius: 20px;
+        font-size: 9px;
+        color: #3282b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+        margin-bottom: 4px;
+    }
+
+    .glass-card:hover .tech-badge {
+        background: rgba(50, 130, 184, 0.2);
+        border-color: var(--accent-blue);
+        color: #fff;
+        box-shadow: 0 0 10px rgba(50, 130, 184, 0.3);
+    }
+
+    #references img {
+        filter: grayscale(100%) brightness(0.9);
+        transition: all 0.3s ease;
+    }
+
+    #references .group:hover img {
+        filter: grayscale(0%) brightness(1.05);
+        transform: scale(1.05);
+    }
+    /* Agrandissement des images dans le parcours au survol */
+.timeline-item img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.timeline-item img:hover {
+    transform: scale(1.15); /* agrandit de 15% */
+    filter: brightness(1.1); /* optionnel : un léger éclaircissement */
+}
+/* Agrandissement des badges tech-badge au survol */
+.tech-badge {
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-badge:hover {
+    transform: scale(1.2); /* agrandit de 20% */
+    z-index: 10; /* pour que le badge soit au-dessus des autres */
+}
+<style>
+/* Variables et body */
+:root {
+    --main-blue: #0f4c75;
+    --accent-blue: #3282b8;
+    --bg-dark: #0a0a0a;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, #18181b 0%, var(--bg-dark) 50%, #18181b 100%);
+    color: #f4f4f5;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Langue */
+:root[data-lang="fr"] .lang-en { display: none !important; }
+:root[data-lang="en"] .lang-fr { display: none !important; }
+
+/* Glass cards */
+.glass-card {
+    background: rgba(30, 30, 35, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(244, 244, 245, 0.1);
+    transition: all 0.3s;
+}
+
+.glass-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--accent-blue), var(--accent-blue), transparent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+
+.timeline-item.left { text-align: right; left: 0; }
+.timeline-item.right { text-align: left; left: 50%; }
+
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--accent-blue);
+    border: 4px solid var(--bg-dark);
+    border-radius: 50%;
+    top: 35px;
+    z-index: 10;
+}
+
+.left .timeline-dot { right: -8px; }
+.right .timeline-dot { left: -8px; }
+
+@media (max-width: 768px) {
+    .timeline-container::after { left: 20px; }
+    .timeline-item { width: 100%; text-align: left !important; padding-left: 50px; left: 0 !important; }
+    .timeline-dot { left: 12px !important; }
+}
+
+/* Expertises */
+.expertise-section {
+    padding: 6rem 1rem;
+    background: radial-gradient(circle at top, #222 0%, #0b0b0b 60%);
+    text-align: center;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.expertise-card {
+    background: linear-gradient(180deg, #1c1c22, #141419);
+    border-radius: 22px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+.expertise-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    border-radius: 22px 22px 0 0;
+}
+
+.border-blue::before { background: #1fb6ff; }
+.border-yellow::before { background: #ffb703; }
+.border-green::before { background: #85FF21; }
+
+.expertise-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+.expertise-label {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+/* Tech badges */
+.tech-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(50, 130, 184, 0.1);
+    border: 1px solid rgba(50, 130, 184, 0.3);
+    border-radius: 20px;
+    font-size: 9px;
+    color: #3282b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    margin-bottom: 4px;
+}
+
+.tech-badge:hover {
+    background: rgba(50, 130, 184, 0.2);
+    border-color: var(--accent-blue);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(50, 130, 184, 0.3);
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+/* Logos parcours pro hover */
+.timeline-item img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.timeline-item img:hover {
+    transform: scale(1.15);
+    filter: brightness(1.1);
+    z-index: 10;
+}
+
+/* Références logos hover */
+#references img {
+    filter: grayscale(100%) brightness(0.9);
+    transition: all 0.3s ease;
+}
+
+#references .group:hover img {
+    filter: grayscale(0%) brightness(1.05);
+    transform: scale(1.05);
+}
+
+/* Back to top */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 200;
+}
+
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#backToTop:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: #1fb6ff;
+}
+
+    </style>
+
+    <script>
+    function setLanguage(lang) {
+        const h = document.documentElement;
+        h.setAttribute('data-lang', lang);
+        h.setAttribute('lang', lang);
+        sessionStorage.setItem('lang', lang);
+    }
+    (function() {
+        try {
+            const saved = sessionStorage.getItem('lang');
+            const lang = saved ? saved : 'fr';
+            setLanguage(lang);
+        } catch (e) {
+            setLanguage('fr');
+        }
+    })();
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting)
+                    e.target.classList.add('active');
+            });
+        }, {
+            threshold: 0.1
+        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('backToTop');
+        if (window.scrollY > 400) {
+            btn.classList.add('show');
+        } else {
+            btn.classList.remove('show');
+        }
+    });
+
+    // Optionnel : Scroll fluide pour les navigateurs plus anciens
+    document.getElementById('backToTop').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    </script>
 </head>
-<body class="bg-gray-900 text-white">
+<a href="#" id="backToTop" title="Remonter" class="flex items-center justify-center">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<body class="pt-24 pb-20">
 
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full bg-gray-800 shadow-md z-50">
-  <div class="container mx-auto flex justify-between items-center p-4">
-    <div class="flex items-center space-x-4">
-      <a href="#" class="text-2xl font-bold"><img src="img/Black White Minimalist Logo - copie.png" alt="Logo" class="h-12 w-12" title="Menu"></a>
-    </div>
-    <div class="space-x-4">
-      <a href="#competences" class="text-2xl font-bold mb-4 hover-scale-200">Compétences</a>
-      <a href="#about" class="text-2xl font-bold mb-4 hover-scale-200">A propos</a>
-      <a href="#cv" class="text-2xl font-bold mb-4 hover-scale-200">CV</a>
-    </div>
-  </div>
-</nav>
+    <!-- HEADER -->
+    <header class="fixed top-0 inset-x-0 z-[100] bg-[#020617]/90 backdrop-blur-xl border-b border-white/5">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex flex-col leading-none">
+                <span class="font-black text-2xl tracking-tighter uppercase italic">
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center p-8 pt-40 fade-in">
-  <h1 class="text-5xl font-bold mb-6">Stéphane Douay</h1>
-  <p class="text-2xl mb-4">Technicien Support Informatique <b>bilingue anglais</b></p>
-  <p class="text-xl mb-8 max-w-2xl">Expert en assistance utilisateurs & résolution de problèmes IT. 23 ans d'expérience pour garantir votre stabilité informatique.</p>
-  <a href="#contact" class="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-full text-lg font-semibold">Contactez-moi</a>
-</section>
+                                        STÉPHANE 
+                                        
+                    <span class="text-blue-500">DOUAY</span>
+                </span>
+                <h2>
+                <span class="lang-en"><span class="text-blue-500"><b>IT VIP & COMEX Expert</b></span></span></h2>
+                <h2>
+                <span class="lang-fr"><span class="text-blue-500"><b>
+                Expert IT VIP & COMEX</b></span></span></h2>
+            </div>
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest">
+                <a href="#about" class="hover:text-blue-400 transition">
+                    <span class="lang-fr">À Propos</span>
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="#skills" class="hover:text-blue-400 transition">
+                    <span class="lang-fr">Expertises</span>
+                    <span class="lang-en">Expertise</span>
+                </a>
+                <a href="#timeline" class="hover:text-blue-400 transition">
+                    <span class="lang-fr">Parcours</span>
+                    <span class="lang-en">Experience</span>
+                </a>
+                <a href="#references" class="hover:text-blue-400 transition">
+                    <span class="lang-fr">Références</span>
+                    <span class="lang-en">References</span>
+                </a>
+                <a href="#Production" class="hover:text-blue-400 transition">
+                    <span class="lang-fr">Production</span>
+                    <span class="lang-en">Production</span>
+                </a>
+                <a href="#cv" class="hover:text-blue-400 transition">
+                    <span class="lang-fr">CV</span>
+                    <span class="lang-en">Resume</span>
+                </a>
+                <a href="#contact" class="hover:text-blue-400 transition">
+                    <span class="lang-fr">Contact</span>
+                    <span class="lang-en">Contact</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-3 bg-white/5 p-1.5 rounded-full border border-white/10">
+                <button onclick="setLanguage('fr')" class="flag-btn flag-fr w-7 h-7 rounded-full overflow-hidden">
+                    <img src="https://flagcdn.com/w40/fr.png" class="h-full" alt="Drapeau Français">
+                </button>
+                <button onclick="setLanguage('en')" class="flag-btn flag-en w-7 h-7 rounded-full overflow-hidden">
+                    <img src="https://flagcdn.com/w40/gb.png" class="h-full" alt="Drapeau Anglais">
+                </button>
+            </div>
+        </nav>
+    </header>
 
-<!-- LIENS VERS LES CVS -->
-<section id="cv" class="py-32 slide-up">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-12">Mes CV</h2>
-    <div class="flex flex-col md:flex-row justify-center gap-10 px-4">
-      <a href="https://www.linkedin.com/in/stephanedouay/overlay/1752738845250/single-media-viewer/?profileId=ACoAABSMfXsB23BWSaUHNExWye8aaYOtfGPDA9M" target="_blank" class="bg-gray-800 p-8 rounded-2xl shadow-lg hover-zoom">
-        <h3 class="text-2xl font-bold mb-4 hover-scale-200">CV Français</h3>
-        
-      </a>
-      <a href="https://www.linkedin.com/in/stephanedouay/overlay/1752756445723/single-media-viewer/?profileId=ACoAABSMfXsB23BWSaUHNExWye8aaYOtfGPDA9M" class="bg-gray-800 p-8 rounded-2xl shadow-lg hover-zoom">
-        <h3 class="text-2xl font-bold mb-4 hover-scale-200">CV Anglais</h3>
-        
-      </a>
-    </div>
-  </div>
-</section>
+    <!-- ABOUT -->
+    <!-- ABOUT -->
+    <section id="about" class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl glass-card p-6 md:p-8 rounded-2xl reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
 
-<!-- COMPÉTENCES -->
-<section id="competences" class="py-32 slide-up">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-12">Compétences techniques</h2>
-    <div class="grid md:grid-cols-2 gap-10 px-4">
-      <div class="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition">
-        <h3 class="text-2xl font-bold mb-4 hover-scale-200">Systèmes & Réseaux</h3>
-        <p>Windows 8/10, Android, Apple OS, iOS | TCP/IP, LAN, WAN, WLAN, Fibre</p>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition">
-        <h3 class="text-2xl font-bold mb-4 hover-scale-200">Support & Assistance</h3>
-        <p>TeamViewer, SCCM, Ultra VNC, Remedy, GLPI, ServiceNow, Active Directory</p>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition">
-        <h3 class="text-2xl font-bold mb-4 hover-scale-200">Collaboration</h3>
-        <p>Slack, Teams, Zoom, SharePoint, Intune Azure</p>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-2xl shadow-lg hover:scale-105 transition">
-        <h3 class="text-2xl font-bold mb-4 hover-scale-200">Outils ITSM & ITIL</h3>
-        <p>Remedy, JIRA, SILA, Mantis, ServiceNow</p>
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- Texte principal -->
+                <div class="lg:col-span-2 flex flex-col justify-center">
+                    <h2 class="text-2xl md:text-3xl font-black uppercase italic mb-4 text-gradient leading-snug">
+                        <span class="lang-fr">Expert Proximité VIP</span>
+                        <span class="lang-en">VIP Support Expert</span>
+                    </h2>
+                    <div class="space-y-3 text-white text-sm md:text-base leading-relaxed">
+                        <p class="lang-fr">
+                            <b>Spécialiste du support de haut niveau depuis 25 ans, j'assure la continuité technologique des directions générales et du COMEX. Mon expertise repose sur une réactivité absolue et une discrétion totale, acquises au sein de groupes majeurs du CAC40.</b>
+                        </p>
+                        <p class="lang-en">
+                            <b>High-level support specialist for 25 years, I ensure the technological continuity of general management and COMEX. My expertise is based on absolute responsiveness and total discretion, acquired within major CAC40 groups.</b>
+                        </p>
+                    </div>
+                </div>
 
-<!-- A PROPOS -->
-<section id="about" class="py-32 bg-gray-800 slide-up">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-6">Qui suis-je ?</h2>
-    <p class="max-w-3xl mx-auto text-lg">Technicien expérimenté, <b>bilingue anglais</b>, avec une expertise reconnue en support VIP, gestion de parc et maintenance systèmes et réseaux. Mon objectif est d'assurer une expérience utilisateur fluide et sans interruption.</p>
-  </div>
-</section>
+                <!-- Missions Clés -->
+                <div class="bg-blue-500/10 backdrop-blur-sm p-6 md:p-8 rounded-3xl border border-blue-500/20 shadow-lg flex flex-col justify-start">
+                    <h4 class="font-bold text-blue-400 uppercase text-base md:text-lg mb-4 tracking-widest border-b border-white/20 pb-2">
+                        <span class="lang-fr">Missions Clés</span>
+                        <span class="lang-en">Key Missions</span>
+                    </h4>
+                    <ul class="text-xs md:text-sm space-y-2 text-gray-200 font-semibold uppercase tracking-widest">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-blue-400 mt-1"></i>
+                            <span class="lang-fr">Support VIP</span>
+                            <span class="lang-en">Support Executive "White Glove"</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-blue-400 mt-1"></i>
+                            <span class="lang-fr">Sécurisation terminaux VIP</span>
+                            <span class="lang-en">VIP terminal security</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-blue-400 mt-1"></i>
+                            <span class="lang-fr">Pilotage de migrations Cloud</span>
+                            <span class="lang-en">Cloud migrations management</span>
+                        </li>
 
-<!-- CONTACT -->
-<section id="contact" class="py-32 slide-up contact-hover">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-6">Contact</h2>
-    <form action="mailto:stdouay@yahoo.com" method="post" enctype="text/plain" class="max-w-xl mx-auto space-y-6">
-      <div>
-        <input type="text" name="Nom" placeholder="Votre nom" class="w-full p-4 rounded-lg bg-gray-700 placeholder-gray-400">
-      </div>
-      <div>
-        <input type="email" name="Email" placeholder="Votre email" class="w-full p-4 rounded-lg bg-gray-700 placeholder-gray-400">
-      </div>
-      <div>
-        <textarea name="Message" rows="5" placeholder="Votre message" class="w-full p-4 rounded-lg bg-gray-700 placeholder-gray-400"></textarea>
-      </div>
-      <button type="submit" class="bg-blue-600 hover:bg-blue-700 transition px-8 py-4 rounded-full text-lg font-semibold">Envoyer</button>
-    </form>
-    <br>
-    <div class="telephone">
-      <a href="tel:+33662846078">
-        <img src="https://www.cnet.com/a/img/resize/1dac7f49d5ce1324423adee661c0222db919c015/hub/2011/10/13/ab39c25a-f0f1-11e2-8c7c-d4ae52e62bcc/35027113_OVR.png?auto=webp&width=1092" width="88" height="88" alt="Appeler">
-      </a>
-    </div>
-    <br>
-    <p>Paris, Courbevoie, Chantilly, Creil</p>
-  </div>
-</section>
+                    </ul>
+                </div>
 
-<footer class="py-6 text-center text-gray-400 text-sm">
-  © 2025 Stéphane Douay
-</footer>
+            </div>
+        </div>
+    </section>
+    <!-- SKILLS -->
+    <section id="skills" class="expertise-section">
+        <h2 class="text-4xl font-black mb-16 text-center uppercase tracking-tight">
+            <span class="lang-fr">EXPERTISE TECHNIQUE</span>
+            <span class="lang-en">TECHNICAL EXPERTISE</span>
+        </h2>
+
+        <div class="expertise-grid">
+
+            <!-- OS & Mobilité -->
+            <div class="expertise-card border-blue">
+                <div class="expertise-icons">
+                    <i class="fa-brands fa-windows blue"></i>
+                    <i class="fa-brands fa-apple green"></i>
+                    <i class="fa-brands fa-android yellow"></i>
+                </div>
+                <h3 class="expertise-label blue">OS & MOBILITÉ</h3>
+
+                <div class="flex flex-wrap gap-2 mt-4 justify-center">
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Windows 10/11</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">macOS</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">iOS</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Android</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">MDM</span>
+                </div>
+            </div>
+
+            <!-- Infrastructure -->
+            <div class="expertise-card border-yellow">
+                <div class="expertise-icons">
+                    <i class="fa-solid fa-server yellow"></i>
+                    <i class="fa-solid fa-network-wired blue"></i>
+                </div>
+                <h3 class="expertise-label green">INFRASTRUCTURE</h3>
+
+                <div class="flex flex-wrap gap-2 mt-4 justify-center">
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Active Directory</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Azure AD</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Office 365</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Masterisation</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Déploiement</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">SCCM</span>
+                </div>
+            </div>
+
+            <!-- ITSM & VIP -->
+            <div class="expertise-card border-green">
+                <div class="expertise-icons">
+                    <i class="fa-solid fa-crown yellow"></i>
+                    <i class="fa-brands fa-jira blue"></i>
+                </div>
+                <h3 class="expertise-label yellow">ITSM & VIP</h3>
+
+                <div class="flex flex-wrap gap-2 mt-4 justify-center">
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">ServiceNow</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Jira</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Remedy</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">GLPI</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">SILA</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">VIP Support</span>
+                    <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">C-Level</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Timeline-->
+    <section id="timeline" class="py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center font-black text-5xl uppercase italic mb-20 text-gradient">
+                <span class="lang-fr">Parcours Professionnel</span>
+                <span class="lang-en">Professional Journey</span>
+            </h2>
+
+            <div class="timeline-container">
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-blue-500 font-black italic text-xl">2022 — 2025</span>
+
+                            <img src="https://media.glassdoor.com/sqll/10355/spie-squarelogo-1426499642109.png" alt="SPIE" class="h-20 md:h-24 object-contain" alt="Logo">
+
+                        </div>
+                        <h3 class="text-white font-black uppercase text-2xl mt-2">SPIE ICS</h3>
+                        <p class="text-blue-400 font-bold uppercase text-[10px] mt-1 tracking-widest">Expert IT Support VIP N3</p>
+
+                        <p>
+                            <span class="lang-fr">
+                                <b>Support dédié COMEX & Directions Générales :</b>
+                            </span>
+                        </p>
+                        <p>
+                            <span class="lang-en">
+                                <b>Dedicated COMEX Support & General Management:</b>
+                            </span>
+                        </p>
+                        <div class="flex justify-end gap-3 mt-3 opacity-70">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fd5fgkn0mbgohl.cloudfront.net%2Fwp-content%2Fuploads%2F2016%2F06%2Flogo_radio_france.png&f=1&nofb=1&ipt=e2efd2ec66fc932d44fcf319adb66df4ea8e7dfcbccea73ebc830296fd692459" width="90px" height="auto" class="object-contain" title="Radio France">
+                            <img src="https://www.kindpng.com/picc/m/791-7914463_arsene-taxand-logo-hd-png-download.png" width="90px" height="auto" class="object-contain" title="Arsene Taxand">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foando.co.jp%2Fwp-content%2Fuploads%2F2023%2F07%2Fgivenchy.jpg&f=1&nofb=1&ipt=7c465e6fced59295a6cec81912c3ba9d1cecd55ef17a5e706973c5f9c8ed986f" class="object-contain" width="110px" height="auto" title="Givenchy">
+                        </div>
+
+                        <div class="flex flex-wrap justify-end gap-1 mt-6">
+                            <span class="tech-badge">
+                                <b>ServiceNow</b>
+                            </span>
+                            <span class="tech-badge">
+                                <b>Azure AD</b>
+                            </span>
+                            <span class="tech-badge">
+                                <b>Intune</b>
+                            </span>
+                            <span class="tech-badge">
+                                <b>M365 Admin</b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="flex justify-between items-start mb-4">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.agences-spatiales.fr%2Fwp-content%2Fuploads%2F2017%2F05%2Farianegroupe-titre.jpg&f=1&nofb=1" class="h-20 md:h-24 object-contain" alt="Ariane">
+                            <span class="text-blue-500 font-black italic text-xl">2019 — 2022</span>
+                        </div>
+                        <h3 class="text-white font-black uppercase text-2xl mt-2">
+                            <b>ARIANESPACE</b>
+                        </h3>
+                        <p class="text-blue-400 font-bold uppercase text-[10px] tracking-widest mb-4">
+                            <b>
+                                                            VIP Specialist</b>
+                        </p>
+                        <div class="flex flex-wrap gap-1 mt-4">
+                           
+<span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">AD</span>                          
+<span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">REMEDY</span>
+<span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">TEAMVIEWER</span>
+<span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">WINDOWS10</span>
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="flex justify-between items-start mb-4">
+
+                            <img src="https://www.liblogo.com/img-logo/sa1265s781-sanofi-logo-sanofi-logo-transparent-file-png-play.png" class="h-20 md:h-24 object-contain transition duration-300 hover:scale-105" alt="Sanofi Logo">
+
+                            <span class="text-blue-500 font-black italic text-xl">
+                                                                        2001 — 2018
+                                                                    </span>
+                        </div>
+
+                        <h3 class="text-white font-black uppercase text-2xl mt-2">
+                                                            SANOFI
+                                                        </h3>
+                                                        <div class="flex flex-wrap justify-end gap-1 mt-4">
+<span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Leader Support Proximité</span>
+ <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">SCCM</span> 
+ <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Exchange</span> 
+ <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Win Server<</span>  
+ <span class="tech-badge bg-accent-blue text-white font-bold text-base px-3 py-2 rounded transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Win Server<</span>                                 
+
+                        
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="references" class="py-24 bg-black/20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center font-black text-4xl uppercase italic mb-16 text-gradient">
+                <span class="lang-fr">Références & Contacts</span>
+                <span class="lang-en">References & Contacts</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+
+                <!-- Radio France -->
+                <div class="glass-card p-8 rounded-3xl text-center flex flex-col justify-between min-h-[320px] group">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fd5fgkn0mbgohl.cloudfront.net%2Fwp-content%2Fuploads%2F2016%2F06%2Flogo_radio_france.png&f=1&nofb=1" class="h-20 md:h-24 object-contain mb-6 mx-auto grayscale group-hover:grayscale-0 transition duration-300">
+                    <div>
+                        <h4 class="font-black text-[12px] text-white uppercase">Raphaël DECUREY</h4>
+                        <p class="text-[10px] text-blue-400 font-bold uppercase">Radio France</p>
+                    </div>
+                    <div class="mt-6 p-3 bg-white/5 rounded-2xl border border-white/10">
+                        <a href="mailto:raphaeldecurey@gmail.com" class="text-[10px] font-mono text-gray-400 hover:text-white break-all">
+                                                raphaeldecurey@gmail.com
+                                            </a>
+                    </div>
+                </div>
+
+                <!-- ArianeGroup -->
+                <div class="glass-card p-8 rounded-3xl text-center flex flex-col justify-between min-h-[320px] group">
+                    <img src="https://media.glassdoor.com/sqll/1777340/arianegroup-squarelogo-1524488326917.png" class="h-20 md:h-24 object-contain mb-6 mx-auto grayscale group-hover:grayscale-0 transition duration-300">
+                    <div>
+                        <h4 class="font-black text-[12px] text-white uppercase">Alan DEREUX</h4>
+                        <p class="text-[10px] text-blue-400 font-bold uppercase">ArianeGroup</p>
+                    </div>
+                    <div class="mt-6 p-3 bg-white/5 rounded-2xl border border-white/10">
+                        <a href="mailto:alan.dereux@iadfrance.fr" class="text-[10px] font-mono text-gray-400 hover:text-white break-all">
+                                                alan.dereux@iadfrance.fr
+                                            </a>
+                    </div>
+                </div>
+
+                <!-- Training Orchestra -->
+                <div class="glass-card p-8 rounded-3xl text-center flex flex-col justify-between min-h-[320px] group">
+                    <img src="https://media.glassdoor.com/sqll/1137035/training-orchestra-squarelogo-1515179862295.png" class="h-20 md:h-24 object-contain mb-6 mx-auto grayscale group-hover:grayscale-0 transition duration-300">
+                    <div>
+                        <h4 class="font-black text-[12px] text-white uppercase">Stanislas KHONDJI</h4>
+                        <p class="text-[10px] text-blue-400 font-bold uppercase">Training Orchestra</p>
+                    </div>
+                    <div class="mt-6 p-3 bg-white/5 rounded-2xl border border-white/10">
+                        <a href="mailto:s.khondji@training-orchestra.com" class="text-[10px] font-mono text-gray-400 hover:text-white break-all">
+                                                s.khondji@training-orchestra.com
+                                            </a>
+                    </div>
+                </div>
+
+                <!-- Lynx RH -->
+                <div class="glass-card p-8 rounded-3xl text-center flex flex-col justify-between min-h-[320px] group">
+                    <img src="http://lynx-rh.ca/wp-content/uploads/2022/01/logo-512x512-1.png" class="h-20 md:h-24 object-contain mb-6 mx-auto grayscale group-hover:grayscale-0 transition duration-300">
+                    <div>
+                        <h4 class="font-black text-[12px] text-white uppercase">Yann SECKE</h4>
+                        <p class="text-[10px] text-blue-400 font-bold uppercase">Lynx RH</p>
+                    </div>
+                    <div class="mt-6 p-3 bg-white/5 rounded-2xl border border-white/10">
+                        <a href="mailto:y.secke@lynx-rh.com" class="text-[10px] font-mono text-gray-400 hover:text-white break-all">
+                                                y.secke@lynx-rh.com
+                                            </a>
+                    </div>
+                </div>
+
+                <!-- Page Personnel -->
+                <div class="glass-card p-8 rounded-3xl text-center flex flex-col justify-between min-h-[320px] group">
+                    <img src="https://media.glassdoor.com/sqll/3127375/page-personnel-squarelogo-1583296830992.png" class="h-20 md:h-24 object-contain mb-6 mx-auto grayscale group-hover:grayscale-0 transition duration-300">
+                    <div>
+                        <h4 class="font-black text-[12px] text-white uppercase">Diane MIHAJLOVIC</h4>
+                        <p class="text-[10px] text-blue-400 font-bold uppercase">Page Personnel</p>
+                    </div>
+                    <div class="mt-6 p-3 bg-white/5 rounded-2xl border border-white/10">
+                        <a href="mailto:DianeMihajlovic@pagepersonnel.fr" class="text-[10px] font-mono text-gray-400 hover:text-white break-all">
+                                                DianeMihajlovic@pagepersonnel.fr
+                                            </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="Production" class="py-24 bg-white/[0.02] relative overflow-hidden">
+        <center>
+    <div class="container mx-auto px-6 relative z-10">
+
+            <h2 class="text-4xl font-black uppercase italic mb-16 text-center text-gradient">
+
+        <center>
+        <span class="lang-fr"><a href="http://www.dinerconnect.fr"><h2 class="text-blue-500"><b>Exemple de site réalisé :</b><br><a href="http://www.dinerconnect.fr"><b> Dinerconnect.fr</b></a><img src="https://www.dinerconnect.fr/img/favicon_32x32.ico" width="90px" height="auto"></span></h2>
+
+        <span class="lang-en"><a href="http://www.dinerconnect.fr"><h2 class="text-blue-500"><b>Production :</b><br><a href="http://www.dinerconnect.fr"><b>Production :</b></a><img src="https://www.dinerconnect.fr/img/favicon_32x32.ico" width="90px" height="auto"></h2></a></span></h2>     
+        </center>
+</a></span>
+    </section>
+    <!-- CV / RESUME -->
+    <section id="cv" class="py-24 bg-white/[0.02] relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 blur-[120px] pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-black uppercase italic mb-16 text-center text-gradient">
+                <span class="lang-fr">Curriculum Vitae</span>
+                <span class="lang-en">Resume</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
+                        <img src="https://flagcdn.com/w40/fr.png" class="w-6 h-6 rounded-full object-cover" alt="FR">
+                        <h3 class="text-blue-400 font-black uppercase tracking-[0.2em] text-sm italic">Version Française</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://www.dropbox.com/scl/fi/a88dujs856v8nymgo1ynf/SDouay-41225-2.pdf?rlkey=nqvbx0zo9zschcxgjrcdbn3ss&st=nherkl3z&dl=0" class="glass-card p-6 rounded-2xl flex flex-col items-center group hover:border-red-500/50" download>
+                            <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <i class="far fa-file-pdf text-2xl text-red-500"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-gray-300">Format PDF</span>
+                            <i class="fas fa-download mt-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-red-400"></i>
+                        </a>
+
+                        <a href="https://www.dropbox.com/scl/fi/j46ncfo6ro61on9eh5nuu/SDouay-41225.docx?rlkey=n72rcttjp4tzotk04yn0ner2m&st=3vq8ao1n&dl=0" class="glass-card p-6 rounded-2xl flex flex-col items-center group hover:border-blue-500/50" download>
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <i class="far fa-file-word text-2xl text-blue-500"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-gray-300">Format Word</span>
+                            <i class="fas fa-download mt-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-blue-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
+                        <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-6 rounded-full object-cover" alt="EN">
+                        <h3 class="text-gray-400 font-black uppercase tracking-[0.2em] text-sm italic">English Version</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://www.dropbox.com/scl/fi/py68laua28h9rpiexfdvc/consort70825-Bilingue-2.pdf?rlkey=2vj0w73io72c0tspxgm674sxj&st=btqlbd9w&dl=0" class="glass-card p-6 rounded-2xl flex flex-col items-center group hover:border-red-500/50" download>
+                            <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <i class="far fa-file-pdf text-2xl text-red-500"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-gray-300">PDF Format</span>
+                            <i class="fas fa-download mt-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-red-400"></i>
+                        </a>
+
+                        <a href="https://www.dropbox.com/scl/fi/j86xcoll41d089mlro3x7/consort70825-Bilingue.docx?rlkey=3ibuo5mmng4e7iywgqba06rxd&st=2n5bv0w3&dl=0" class="glass-card p-6 rounded-2xl flex flex-col items-center group hover:border-blue-500/50" download>
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <i class="far fa-file-word text-2xl text-blue-500"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-gray-300">Word Format</span>
+                            <i class="fas fa-download mt-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-blue-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="mt-16 text-gray-500 text-[10px] uppercase tracking-[0.3em] font-medium">
+                <span class="lang-fr">Dernière mise à jour : Mars 2026</span>
+                <span class="lang-en">Last update: March 2026</span>
+            </p>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-black mb-8 text-gradient uppercase">
+                <span class="lang-fr">Contact</span>
+                <span class="lang-en">Contact</span>
+            </h2>
+
+            <div class="flex justify-center gap-10 text-3xl">
+
+                <!-- Téléphone -->
+                <div class="relative group">
+                    <a href="tel:+33662846078" class="text-white hover:text-emerald-400 transition-all duration-300 hover:scale-125">
+                        <i class="fas fa-phone"></i>
+                    </a>
+
+                    <span class="absolute left-1/2 -translate-x-1/2 mt-4
+                                                 text-xl font-bold text-white
+                                                 bg-black/70 px-4 py-2 rounded-xl
+                                                 opacity-0 group-hover:opacity-100
+                                                 transition duration-300 whitespace-nowrap">
+                                        +33 6 62 84 60 78
+                                    </span>
+                </div>
+
+                <!-- Email -->
+                <a href="mailto:stdouay@yahoo.com" class="text-white hover:text-blue-400 transition-all duration-300 hover:scale-125">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/stephanedouay/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#0077b5] transition-all duration-300 hover:scale-125">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
+
